@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>look at that random dog!!</h1>
+    <img id="image" height="500px">
+    <br>
+    <button id="btnClick">fetch a new dog</button>
+
+</body>
+
+<script>
+    let btn = document.getElementById("btnClick")
+    let image = document.getElementById("image")
+
+
+    btn.addEventListener('click', function() {
+        fetch("https://dog.ceo/api/breeds/image/random")
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+                image.src = result.message
+            })
+            .catch(err => console.log(err))
+    })
+
+
+
+    // const api_url = 'https://dog.ceo/api/breed/Husky/images/random'
+    
+    // async function getHusky() {
+    //     const response = await fetch(api_url);
+    //     console.log(response);
+    // }
+
+    // getHusky();
+</script>
+
+
+</html>
